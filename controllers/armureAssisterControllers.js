@@ -1,11 +1,11 @@
 import express from "express";
-import armureAssister from "../models/armureAssisterModel.js";
+import armureAssister from "../models/armureAssisterModels.js";
 import Joi from "joi";
 // import { resolvePath } from "react-router";
 const router = express.Router();
 
 const schemaArmureAssister = Joi.object({
-  id: Joi.intinger().required,
+  id: Joi.number().integer().required(),
   name: Joi.string().min(3).max(255).required(),
   fonction: Joi.string().min(3),
   note: Joi.string().min(3),
@@ -15,7 +15,7 @@ router
   .get("/:id", async (req, res) => {
     const id = req.params.id;
     try {
-      const ArmureAssister = await ArmureAssister.getOneById(id);
+      const armureAssister = await armureAssister.getOneById(id);
 
       res.json(armureAssister);
     } catch (error) {
