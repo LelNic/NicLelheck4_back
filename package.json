@@ -1,0 +1,25 @@
+{
+  "name": "falloutcheck4_back",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LelNic/falloutcheck4_back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LelNic/falloutcheck4_back/issues"
+  },
+  "homepage": "https://github.com/LelNic/falloutcheck4_back#readme",
+  "dependencies": {
+    "gitignore": "^0.7.0"
+  }
+}
