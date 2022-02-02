@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/LelNic/falloutcheck4_back#readme",
   "dependencies": {
-    "gitignore": "^0.7.0"
+    "cors": "^2.8.5",
+    "dotenv": "^15.0.0",
+    "express": "^4.17.2",
+    "gitignore": "^0.7.0",
+    "joi": "^17.6.0",
+    "mysql2": "^2.3.3"
   }
 }
