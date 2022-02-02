@@ -1,5 +1,5 @@
 import express from "express";
-import middleware from "../services/middleware.js";
+import middleware from "../service/middleware.js";
 
 const router = express.Router();
 
