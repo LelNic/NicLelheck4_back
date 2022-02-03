@@ -1,14 +1,14 @@
 import express from "express";
-import Equipement from "../models/equipementModel.js";
+import Equipement from "../models/equipementModels.js";
 import Joi from "joi";
 // import { resolvePath } from "react-router";
 const router = express.Router();
 
 const schemaEquipement = Joi.object({
-  id: Joi.intinger().required,
+  id: Joi.number().integer().required(),
   name: Joi.string().min(3).max(255).required(),
   fonction: Joi.string().min(3),
-  note: Joi.string().min(3)
+  note: Joi.string().min(3),
 });
 
 router

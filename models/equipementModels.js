@@ -41,7 +41,7 @@ const createNew = (equipement) => {
 };
 
 // UPDATE
-const updateEquipement = (name) => {
+const updateEquipement = (equipement) => {
   const { name, id } = equipement;
   return new Promise((resolve, reject) => {
     dbConnect.query("UPDATE equipement SET name = ? WHERE id = ?", [name, id], (err, result) => {
