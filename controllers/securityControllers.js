@@ -8,8 +8,7 @@ import middleware from "../service/middleware.js";
 const router = express.Router();
 const saltRounds = 10;
 const schemaUser = Joi.object({
-  firstname: Joi.string().required(),
-  lastname: Joi.string().required(),
+  pseudo: Joi.string().required(),
   email: Joi.string().email().required().trim(true),
   password: Joi.string().min(8).required().trim(true),
   birthdate: Joi.date(),
@@ -17,9 +16,10 @@ const schemaUser = Joi.object({
 
 router
   .post("/register", async (req, res) => {
-    const { firstname, lastname, email, password, bithdate } = req.body;
+    const { pseudo, email, password, birthdate } = req.body;
     try {
-      const userIsValid = schemaUser.validate({ firstname, lastname, email, password, bithdate });
+      console.log(req.body);
+      const userIsValid = schemaUser.validate({ pseudo, email, password, birthdate });
       const userExist = await User.findByEmail(userIsValid.value.email);
       if (userIsValid.error) return res.json({ error: userIsValid.error.details[0].message }).status(422);
       if (userExist) return res.json({ error: "L'email existe déjà" }).status(409);
@@ -30,9 +30,11 @@ router
         const user = await User.findById(userId);
         res.json(user).status(201);
       } catch (error) {
+        console.log(error.message);
         res.json({ error: error.message }).status(500);
       }
     } catch (error) {
+      console.log(error.message);
       res.json({ message: error.message }).status(500);
     }
   })

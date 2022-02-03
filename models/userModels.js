@@ -29,11 +29,11 @@ const findById = (id) => {
 
 // CREATE
 const createNew = (user) => {
-  const { firstname, lastname, email, password, bithdate } = user;
+  const { pseudo, email, password, birthdate } = user;
   return new Promise((resolve, reject) => {
     dbConnect.query(
-      "INSERT INTO user (firstname, lastname, email, password, bithdate) VALUES (?, ?, ?, ?, ?)",
-      [firstname, lastname, email, password, bithdate],
+      "INSERT INTO user (pseudo, email, password, birthdate) VALUES (?, ?, ?, ?)",
+      [pseudo, email, password, birthdate],
       (err, result) => {
         if (err) reject(err);
         else resolve(result.insertId);
@@ -54,11 +54,11 @@ const deleteById = (id) => {
 
 // UPDATE
 const updateUser = (user) => {
-  const { firstname, lastname, email, password, bithdate, id } = user;
+  const { pseudo, email, password, birthdate, id } = user;
   return new Promise((resolve, reject) => {
     dbConnect.query(
-      "UPDATE user SET firstname = ?, lastname = ?, email = ?, password, birthdate = ? WHERE id = ?",
-      [firstname, lastname, email, password, bithdate, id],
+      "UPDATE user SET pseudo = ?, email = ?, password, birthdate = ? WHERE id = ?",
+      [pseudo, email, password, birthdate, id],
       (err, result) => {
         if (err) reject(err);
         else resolve(result);
